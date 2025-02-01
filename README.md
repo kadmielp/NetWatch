@@ -1,5 +1,5 @@
 # NetWatch
-This PowerShell script, `NetWatch`, monitors network connections on your Windows system, providing real-time information about external connections, along with additional features like Inspect and Focus modes.
+This PowerShell script, `NetWatch`, monitors outbound network connections on your Windows system, providing real-time information about external connections, along with additional features like Inspect and Focus modes.
 
 ## Features
 
