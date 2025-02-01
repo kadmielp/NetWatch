@@ -15,12 +15,12 @@ This PowerShell script, `NetWatch`, monitors network connections on your Windows
 
 ## How to Use
 
-1.  **Download:** Clone or download the `Network-Monitor.ps1` script to your local machine.
+1.  **Download:** Clone or download the `netwatch.ps1` script to your local machine.
 2.  **Run:** Open PowerShell as an administrator and navigate to the directory where the script is saved.
 3.  **Execute:** Run the script using:
 
     ```powershell
-    .\Network-Monitor.ps1
+    .\netwatch.ps1
     ```
 4.  **Interact:**
     -   **`P`**: Pause/Unpause monitoring.
