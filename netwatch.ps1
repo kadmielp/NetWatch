@@ -129,49 +129,47 @@ function Display-FocusConnections {
 
 # Function to save focus mode report
 function Save-FocusReport {
-    if ($script:focusMode) {
-        $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
-        $reportPath = Join-Path $PWD "focus_report_$timestamp.txt"
+    $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+    $reportPath = Join-Path $PWD "focus_report_$timestamp.txt"
         
-        $report = "Focus Mode Report - $(Get-Date)`n"
-        $report += "Session Started: $($script:focusStartTime)`n"
-        $report += "Duration: $([math]::Round(((Get-Date) - $script:focusStartTime).TotalMinutes, 2)) minutes`n"
-        
-        $activeConns = $script:focusConnections.Values | Where-Object { $_.Status -eq "Active" }
-        $inactiveConns = $script:focusConnections.Values | Where-Object { $_.Status -eq "Inactive" }
-        
-        $report += "Total Tracked Connections: $($script:focusConnections.Count)`n"
-        $report += "Active Connections: $($activeConns.Count)`n"
-        $report += "Inactive Connections: $($inactiveConns.Count)`n`n"
-        
-        # Active Connections
-        $report += "Active Connections:`n"
-        $report += "-----------------`n"
-        foreach ($conn in $activeConns) {
-            $report += "Process: $($conn.ProcessName)`n"
-            $report += "Remote Address: $($conn.RemoteAddress)`n"
-            $report += "ISP: $($conn.ISP)`n"
-            $report += "First Seen: $($conn.FirstSeen)`n"
-            $report += "Last Seen: $($conn.LastSeen)`n"
-            $report += "Status: Active`n`n"
-        }
-        
-        # Inactive Connections
-        $report += "Inactive Connections:`n"
-        $report += "-------------------`n"
-        foreach ($conn in $inactiveConns) {
-            $report += "Process: $($conn.ProcessName)`n"
-            $report += "Remote Address: $($conn.RemoteAddress)`n"
-            $report += "ISP: $($conn.ISP)`n"
-            $report += "First Seen: $($conn.FirstSeen)`n"
-            $report += "Last Seen: $($conn.LastSeen)`n"
-            $report += "Status: Inactive`n`n"
-        }
-        
-        $report | Out-File -FilePath $reportPath
-        Write-Host "`nFocus Mode report saved to: $reportPath" -ForegroundColor Green
-        Start-Sleep -Seconds 2
+    $report = "Focus Mode Report - $(Get-Date)`n"
+    $report += "Session Started: $($script:focusStartTime)`n"
+    $report += "Duration: $([math]::Round(((Get-Date) - $script:focusStartTime).TotalMinutes, 2)) minutes`n"
+    
+    $activeConns = $script:focusConnections.Values | Where-Object { $_.Status -eq "Active" }
+    $inactiveConns = $script:focusConnections.Values | Where-Object { $_.Status -eq "Inactive" }
+    
+    $report += "Total Tracked Connections: $($script:focusConnections.Count)`n"
+    $report += "Active Connections: $($activeConns.Count)`n"
+    $report += "Inactive Connections: $($inactiveConns.Count)`n`n"
+    
+    # Active Connections
+    $report += "Active Connections:`n"
+    $report += "-----------------`n"
+    foreach ($conn in $activeConns) {
+        $report += "Process: $($conn.ProcessName)`n"
+        $report += "Remote Address: $($conn.RemoteAddress)`n"
+        $report += "ISP: $($conn.ISP)`n"
+        $report += "First Seen: $($conn.FirstSeen)`n"
+        $report += "Last Seen: $($conn.LastSeen)`n"
+        $report += "Status: Active`n`n"
     }
+    
+    # Inactive Connections
+    $report += "Inactive Connections:`n"
+    $report += "-------------------`n"
+    foreach ($conn in $inactiveConns) {
+        $report += "Process: $($conn.ProcessName)`n"
+        $report += "Remote Address: $($conn.RemoteAddress)`n"
+        $report += "ISP: $($conn.ISP)`n"
+        $report += "First Seen: $($conn.FirstSeen)`n"
+        $report += "Last Seen: $($conn.LastSeen)`n"
+        $report += "Status: Inactive`n`n"
+    }
+    
+    $report | Out-File -FilePath $reportPath
+    Write-Host "`nFocus Mode report saved to: $reportPath" -ForegroundColor Green
+    Start-Sleep -Seconds 2
 }
 # Function to export cache
 function Export-IPCache {
