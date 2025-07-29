@@ -1,4 +1,7 @@
-# NetWatch
+# NetWatch ![Top Language](https://img.shields.io/github/languages/top/kadmielp/NetWatch) ![Last Commit](https://img.shields.io/github/last-commit/kadmielp/NetWatch) ![License](https://img.shields.io/github/license/kadmielp/NetWatch)
+
+
+
 This PowerShell script, `NetWatch`, monitors outbound network connections on your Windows system, providing real-time information about external connections, along with additional features like Inspect and Focus modes.
 
 ## Features
