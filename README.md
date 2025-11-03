@@ -10,8 +10,9 @@ This PowerShell script, `NetWatch`, monitors outbound network connections on you
 - **IP Geolocation Lookup:** Retrieves ISP information for remote IP addresses.
 - **IP Address Caching:** Caches ISP lookups to minimize API calls and improve performance.
 - **Pause/Unpause:** Ability to pause and resume connection monitoring.
-- **Export to CSV:** Export current connection data to a CSV file.
-- **Export Cache:** Save the cached IP lookups to a JSON file.
+- **Export Active to CSV:** Export currently active connections to a CSV file.
+- **Export Session to CSV:** Export all connections seen during the session (active and inactive) to a CSV file.
+- **Save Cache:** Save the cached IP lookups to a JSON file.
 - **Inspect Mode:** Inspect connections associated with a specific process.
 - **Focus Mode:** Track and display a history of all non-cached connections established during a session, with active and inactive states.
 - **Focus Report:** Save a detailed report of the Focus Mode session, including active and inactive connection history.
@@ -27,12 +28,19 @@ This PowerShell script, `NetWatch`, monitors outbound network connections on you
     ```
 4.  **Interact:**
     -   **`P`**: Pause/Unpause monitoring.
-    -   **`E`**: Export current connections to a CSV file.
+    -   **`A`**: Export currently active connections to a CSV file.
+    -   **`E`**: Export all session connections (active and inactive) to a CSV file.
     -   **`I`**: Enter Inspect Mode to view connections for a specific process.
     -   **`F`**: Toggle Focus Mode to track uncached connections.
-    -   **`C`**: Export IP cache to `ip_cache.json`.
-    -  **`+`** (while in focus mode): Add current view to cache.
-    - **`S`** (while in focus mode): Save focus mode report.
+    -   **`C`**: Save IP cache to `ip_cache.json`.
+    -   **`D`**: Toggle showing process file paths.
+    -   **`+`** (while in focus mode): Add current view to cache.
+    -   **`S`** (while in focus mode): Save focus mode report.
+
+## Export Features
+
+-   **Export Active (`A`):** Exports only the connections that are currently active at the time of export.
+-   **Export Session (`E`):** Exports all unique connections that have been seen during the entire session, including both active and inactive connections. Includes timestamps (FirstSeen, LastSeen), status, and connection count.
 
 ## Focus Mode Details
 
