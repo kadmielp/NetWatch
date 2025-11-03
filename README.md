@@ -78,7 +78,3 @@ This software monitors network connections on the local system only. Connection 
 ## License
 
 This project is available under the [MIT License](LICENSE)
-
-## Contributing
-
-Contributions are welcome! Please submit pull requests with improvements or bug fixes.
