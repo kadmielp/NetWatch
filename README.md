@@ -58,6 +58,23 @@ This PowerShell script, `NetWatch`, monitors outbound network connections on you
 -   The script requires internet access to perform IP lookups for external addresses.
 -   The script requires administrator privileges to retrieve network connection information.
 
+## Legal Notice
+
+### Disclaimer
+
+This software is provided for legitimate network monitoring and security analysis purposes only. Users are responsible for ensuring their use complies with applicable laws and regulations, including privacy laws and workplace policies. The authors and contributors are not responsible for misuse of this software.
+
+### Third-Party Services
+
+This software uses the [ip-api.com](http://ip-api.com/) service for IP geolocation lookups. Users should be aware that:
+- The free tier of ip-api.com has rate limits (45 requests per minute).
+- Please refer to [ip-api.com's terms of service](http://ip-api.com/docs/legal) for usage terms and conditions.
+- This software caches lookups locally to minimize API requests, but high-volume usage may require a paid ip-api.com subscription.
+
+### Privacy
+
+This software monitors network connections on the local system only. Connection data and geolocation information are processed locally and can be exported to CSV files. No data is transmitted to external services except for IP geolocation lookups via ip-api.com. Users are responsible for securing any exported data files.
+
 ## License
 
 This project is available under the [MIT License](LICENSE)
